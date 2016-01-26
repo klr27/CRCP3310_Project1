@@ -1,20 +1,36 @@
-InputStream input;
 BufferedReader reader;
-char [] characters;
+final String FILENAME = "Alice.txt";
+int [] freqs = new int[26];
+int [] redValue = new int[26];
+int [] greenValue = new int[26];
+int [] blueValue = new int[26];
 
 
 void setup() {
- input = createInput("Alic_PlainText.txt"); 
- reader = createReader("Alice_PlainText.txt");
-  
+  size(420, 420);
+  reader = createReader(FILENAME);
+  for (int i=0; i++; i<26) {
+    freqs[i] = 0;
+  }
+  for (int i=0; i++; i<26) {
+   redValue[i] = rand(255);
+  }
+  for (int i=0; i++; i<26) {
+   greenValue[i] = rand(255);
+  }
+  for (int i=0; i++; i<26) {
+   blueValue[i] = rand(255);
+  }
 }
 
 void draw() {
-  characters = new char[input.available()]; //unhandled exception
   try {
-    reader.read(characters, 2, input.available());
-  } catch (IOException e) {
+    Character character = char(reader.read());
+    println(character);
+  } 
+  catch (IOException e) {
+    println("Error");
     e.printStackTrace();
   }
-
+  
 }
