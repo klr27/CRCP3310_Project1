@@ -1,36 +1,33 @@
 BufferedReader reader;
-final String FILENAME = "Alice.txt";
+final String FILE_NAME = "Alice.txt";
+PImage letterVis;
 int [] freqs = new int[26];
-float [] redValue = new float[26];
-float [] greenValue = new float[26];
-float [] blueValue = new float[26];
+color [] palette = new color[26];
+final int ASCII_OFFSET = 97;
+int state;
+final int LETTER_VIS_STATE = 0;
+final int FREQUENCY_VIS_STATE = 1;
+
 
 
 void setup() {
   size(420, 420);
-  reader = createReader(FILENAME);
-  for (int i=0; i < 26; i++) {
-    freqs[i] = 0;
-  }
-  for (int i=0; i < 26; i++) {
-   redValue[i] = random(255);
-  }
-  for (int i=0; i < 26; i++) {
-   greenValue[i] = random(255);
-  }
-  for (int i=0; i < 26; i++) {
-   blueValue[i] = random(255);
-  }
+  state = 0;
+  initializeLetterVis();
+  initializeFreqs();
+  initializePalette();
+  setupVis();
 }
 
 void draw() {
-  try {
-    Character character = char(reader.read());
-    println(character);
-  } 
-  catch (IOException e) {
-    println("Error");
-    e.printStackTrace();
+  background(255);
+  if (state == 0) {
+    image(letterVis, 0, 0);
+  } else {
+    println("draw frequency graph");
   }
-  
+}
+
+void mouseClicked() {
+  state = (state + 1) % 2;
 }
