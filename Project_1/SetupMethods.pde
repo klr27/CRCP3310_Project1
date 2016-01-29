@@ -31,9 +31,27 @@ void colorPixel(int letter, int pixelNumber) {
 }
 
 void countFrequency(int letter) {
-    freqs[letter - ASCII_OFFSET]++;
+  freqs[letter - ASCII_OFFSET]++;
 }
 
-void checkAlice(){
+void checkAlice() {
   //??? looking ahead - how to do this
+}
+
+void findMin(int [26] frequencies, int min) {
+  min = frequencies[0];
+  for (int i=1; i<26; i++) {
+    if (frequencies[i] < min) {
+      min = frequencies[i];
+    } else continue;
+  }
+}
+
+void findMax(int [26] frequencies, int max) {
+  max = frequencies[0];
+  for (int i=1; i<26; i++) {
+    if (frequencies[i] > max) {
+      max = frequencies[i];
+    } else continue;
+  }
 }
