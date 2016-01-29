@@ -20,7 +20,6 @@ void setup() {
 }
 
 void draw() {
-  background(255);
   if (state == 0) {
     image(letterVis, 0, 0);
   } else {
