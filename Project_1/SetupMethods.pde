@@ -11,6 +11,7 @@ void setupVis() {
         character = Character.toLowerCase(character);
         colorPixel(character, pixelCount);
         countFrequency(character);
+        checkAlice();
       }
       pixelCount++;
     }
@@ -31,4 +32,8 @@ void colorPixel(int letter, int pixelNumber) {
 
 void countFrequency(int letter) {
     freqs[letter - ASCII_OFFSET]++;
+}
+
+void checkAlice(){
+  //??? looking ahead - how to do this
 }

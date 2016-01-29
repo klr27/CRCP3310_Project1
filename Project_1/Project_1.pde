@@ -21,12 +21,8 @@ void setup() {
 
 void draw() {
   if (state == 0) {
-    image(letterVis, 0, 0);
+    drawLetterVis();
   } else {
     println("draw frequency graph");
   }
-}
-
-void mouseClicked() {
-  state = (state + 1) % 2;
 }
