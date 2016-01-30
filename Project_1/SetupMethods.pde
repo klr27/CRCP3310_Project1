@@ -8,10 +8,10 @@ void setupVis() {
       if (!Character.isAlphabetic(character)) {
         colorBlack(pixelCount);
       } else {
-        character = Character.toLowerCase(character);
-        colorPixel(character, pixelCount);
-        countFrequency(character);
-        checkAlice();
+        int letter = Character.toLowerCase(character);
+        colorPixel(letter, pixelCount);
+        countFrequency(letter);
+        checkAlice(character);
       }
       pixelCount++;
     }
@@ -34,24 +34,40 @@ void countFrequency(int letter) {
   freqs[letter - ASCII_OFFSET]++;
 }
 
-void checkAlice() {
-  //??? looking ahead - how to do this
-}
-
-void findMin(int [26] frequencies, int min) {
-  min = frequencies[0];
-  for (int i=1; i<26; i++) {
-    if (frequencies[i] < min) {
-      min = frequencies[i];
-    } else continue;
+void checkAlice(int character) {
+  aliceCount = 0;
+  if (character == 65) {
+    try {
+      reader.mark(4);
+      for (int i=0; i<4; i++) {
+      reader.read();
+      }
+    }
+    catch (IOException e) {
+      println("Error");
+      e.printStackTrace();
+    }
   }
 }
 
-void findMax(int [26] frequencies, int max) {
-  max = frequencies[0];
-  for (int i=1; i<26; i++) {
-    if (frequencies[i] > max) {
-      max = frequencies[i];
-    } else continue;
+void findMin(int [] frequencies) {
+  int minCount = frequencies[0];
+  letterMin = 0;
+  for (int i=0; i<26; i++) {
+    if (frequencies[i] < minCount) {
+      minCount = frequencies[i];
+      letterMin = i;
+    }
+  }
+}
+
+void findMax(int [] frequencies) {
+  int maxCount = frequencies[0];
+  letterMax = 0;
+  for (int i=0; i<26; i++) {
+    if (frequencies[i] > maxCount) {
+      maxCount = frequencies[i];
+      letterMax = i;
+    }
   }
 }

@@ -20,8 +20,15 @@ void setup() {
   initializeFreqs();
   initializePalette();
   setupVis();
-  findMin(freqs, letterMin);
-  findMax(freqs, letterMax);
+  findMin(freqs);
+  findMax(freqs);
+  println(char(letterMin + ASCII_OFFSET));
+  println(char(letterMax + ASCII_OFFSET));
+  letterVis.updatePixels();
+  for (int i=0; i<26; i++) {
+    print(freqs[i]);
+    print("  ");
+  }
 }
 
 void draw() {
