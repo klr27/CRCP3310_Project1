@@ -4,6 +4,8 @@ void setupVis() {
   try {
     int character;
     int pixelCount = 0;
+    int positionCount = 0;
+    aliceCount = 0;
     while ((character = reader.read()) != -1) {
       if (!Character.isAlphabetic(character)) {
         colorBlack(pixelCount);
@@ -11,9 +13,12 @@ void setupVis() {
         int letter = Character.toLowerCase(character);
         colorPixel(letter, pixelCount);
         countFrequency(letter);
-        checkAlice(character);
+        if (character == 65) {
+          checkAlice(positionCount);
+        }
       }
       pixelCount++;
+      positionCount++;
     }
   } 
   catch (IOException e) {
@@ -34,20 +39,26 @@ void countFrequency(int letter) {
   freqs[letter - ASCII_OFFSET]++;
 }
 
-void checkAlice(int character) {
-  aliceCount = 0;
-  if (character == 65) {
-    try {
-      reader.mark(4);
-      for (int i=0; i<4; i++) {
-      reader.read();
-      }
+void checkAlice(int pos) {
+  String compare = "A"; 
+  try {
+    reader.mark(4);
+    for (int i=0; i<4; i++) {
+      compare += char(reader.read());
     }
-    catch (IOException e) {
-      println("Error");
-      e.printStackTrace();
+    if (compare == alice) {
+      aliceCount += 1;
+      highlightAlice(pos);
     }
+    reader.reset();
   }
+  catch (IOException e) {
+    println("Error");
+    e.printStackTrace();
+  }
+}
+
+void highlightAlice(int pos) {
 }
 
 void findMin(int [] frequencies) {

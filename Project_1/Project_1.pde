@@ -1,5 +1,6 @@
 BufferedReader reader;
 final String FILE_NAME = "Alice.txt";
+final String alice = "Alice";
 PImage letterVis;
 int [] freqs = new int[26];
 color [] palette = new color[26];
@@ -20,6 +21,7 @@ void setup() {
   initializeFreqs();
   initializePalette();
   setupVis();
+  println(aliceCount);
   findMin(freqs);
   findMax(freqs);
   println(char(letterMin + ASCII_OFFSET));
