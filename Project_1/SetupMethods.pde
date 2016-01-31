@@ -59,6 +59,10 @@ void checkAlice(int pos) {
 }
 
 void highlightAlice(int pos) {
+  for (int i=0; i<5; i++) {
+    letterVis.pixels[pos + i] = color(red(letterVis.pixels[pos + i]), green(letterVis.pixels[pos + i]), blue(letterVis.pixels[pos + i]), 150);
+  }
+  
 }
 
 void findMin(int [] frequencies) {
