@@ -19,7 +19,6 @@ final int LETTER_VIS_STATE = 0;
 final int FREQUENCY_VIS_STATE = 1;
 
 
-
 void setup() {
   size(900, 600);
   state = LETTER_VIS_STATE;
@@ -28,12 +27,13 @@ void setup() {
   initializeAlicePos();
   initializePalette();
   setupVis();
-  highlightAlice(alicePos);
+  colorAlice(alicePos);
   findMin(freqs);
   findMax(freqs);
   setupFreqsVis();
   letterVis.updatePixels();
 }
+
 
 void draw() {
   if (state == 0) {

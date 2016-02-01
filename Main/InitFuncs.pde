@@ -1,8 +1,8 @@
 void initializeLetterVis() {
-  //letterVis = new PImage(420, 420, RGB);
   letterVis = new PImage(900, 650, RGB);
   letterVis.loadPixels();
 }
+
 
 void initializeFreqs() {
   for (int i=0; i < 26; i++) {
@@ -11,11 +11,13 @@ void initializeFreqs() {
   }
 }
 
+
 void initializeAlicePos() {
   for (int i=0; i < 402; i++) {
     alicePos[i] = 0;
   }
 }
+
 
 void initializePalette() {
   palette[0] = color(255, 0, 0); //a

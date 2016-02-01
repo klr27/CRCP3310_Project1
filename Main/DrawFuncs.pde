@@ -2,6 +2,7 @@ void mouseClicked() {
   state = (state + 1) % 2;
 }
 
+
 void drawLetterVis() {
   background(0);
   image(letterVis, 0, 0);
@@ -11,6 +12,7 @@ void drawLetterVis() {
   textSize(14);
   text(textAlice, 20, 590);
 }
+
 
 void drawFreqVis() {
   background(0);
