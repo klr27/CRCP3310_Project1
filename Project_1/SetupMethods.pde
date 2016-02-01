@@ -86,3 +86,14 @@ void findMax(int [] frequencies) {
     }
   }
 }
+
+void setupFreqsVis() {
+  for (int i=0; i<26; i++) {
+    letterTotal += freqs[i];
+  }
+  println(letterTotal);
+  for (int i=0; i<26; i++) {
+    freqsVis[i] = (freqs[i] / letterTotal) * 420;
+    println(freqsVis[i]);
+  }
+}
