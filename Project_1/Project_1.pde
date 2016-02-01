@@ -21,20 +21,15 @@ final int FREQUENCY_VIS_STATE = 1;
 
 void setup() {
   size(420, 420);
-  state = 0;
+  state = LETTER_VIS_STATE;
   initializeLetterVis();
   initializeFreqs();
   initializePalette();
   setupVis();
-  println(aliceCount);
   findMin(freqs);
   findMax(freqs);
   setupFreqsVis();
   letterVis.updatePixels();
-  for (int i=0; i<26; i++) {
-    print(freqs[i]);
-    print("  ");
-  }
 }
 
 void draw() {
