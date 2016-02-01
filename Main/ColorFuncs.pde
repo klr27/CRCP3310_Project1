@@ -1,7 +1,7 @@
 void colorBlack(int pixelNumber) {
-  letterVis.pixels[pixelNumber] = color(255);
-  letterVis.pixels[pixelNumber + 1] = color(255);
-  letterVis.pixels[pixelNumber + 2] = color(255);
+  letterVis.pixels[pixelNumber] = color(240);
+  letterVis.pixels[pixelNumber + 1] = color(240);
+  letterVis.pixels[pixelNumber + 2] = color(240);
 }
 
 
