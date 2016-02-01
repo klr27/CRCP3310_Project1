@@ -1,3 +1,6 @@
+//CRCP 3310 Project 1 - Alice in Wonderland Visualization
+//Kali Ruppert
+
 BufferedReader reader;
 final String FILE_NAME = "Alice.txt";
 final String alice = "Alice";
