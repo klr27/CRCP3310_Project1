@@ -44,11 +44,11 @@ void checkAlice(int pos) {
   try {
     reader.mark(4);
     for (int i=0; i<4; i++) {
-      compare += char(reader.read());
-    }
-    if (compare == alice) {
-      aliceCount += 1;
-      highlightAlice(pos);
+      compare += char(Character.toLowerCase(reader.read()));
+      if (compare.equals(alice)) {
+        aliceCount += 1;
+        highlightAlice(pos);
+      }
     }
     reader.reset();
   }
@@ -62,7 +62,6 @@ void highlightAlice(int pos) {
   for (int i=0; i<5; i++) {
     letterVis.pixels[pos + i] = color(red(letterVis.pixels[pos + i]), green(letterVis.pixels[pos + i]), blue(letterVis.pixels[pos + i]), 155);
   }
-  
 }
 
 void findMin(int [] frequencies) {
@@ -91,9 +90,7 @@ void setupFreqsVis() {
   for (int i=0; i<26; i++) {
     letterTotal += freqs[i];
   }
-  println(letterTotal);
   for (int i=0; i<26; i++) {
     freqsVis[i] = (freqs[i] / letterTotal) * 420;
-    println(freqsVis[i]);
   }
 }
