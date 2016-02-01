@@ -3,24 +3,26 @@ void mouseClicked() {
 }
 
 void drawLetterVis() {
-  background(255);
+  background(0);
   image(letterVis, 0, 0);
 
   String textAlice = "Alice is presented " + aliceCount + " times.";
-  fill(0);
-  text(textAlice, 10, 415);
+  fill(255);
+  textSize(14);
+  text(textAlice, 20, 590);
 }
 
 void drawFreqVis() {
   background(0);
-  float posx = 0;
+  float posx = 20;
   float posy = 50;
-
+  textSize(14);
+  
   for (int i=0; i<26; i++) {
     fill(palette[i]);
-    text(char(i + ASCII_OFFSET), (i * 15) + 10, 20);
+    text(char(i + ASCII_OFFSET), (i * 34) + 20, 20);
     noStroke();
-    rect(posx, posy, freqsVis[i], 300);
+    rect(posx, posy, freqsVis[i], 500);
     posx += freqsVis[i];
   }
 
@@ -28,6 +30,6 @@ void drawFreqVis() {
   String textMin = "The least frequent letter is " + char(letterMin + ASCII_OFFSET) + ".";
   fill(255);
   stroke(255);
-  text(textMax, 10, 370);
-  text(textMin, 10, 390);
+  text(textMax, 20, 570);
+  text(textMin, 20, 590);
 }

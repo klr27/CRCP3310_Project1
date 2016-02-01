@@ -6,6 +6,7 @@ final String FILE_NAME = "Alice.txt";
 final String alice = "Alice";
 PImage letterVis;
 int [] freqs = new int[26];
+int [] alicePos = new int[402];
 float [] freqsVis = new float[26];
 color [] palette = new color[26];
 final int ASCII_OFFSET = 97;
@@ -20,12 +21,14 @@ final int FREQUENCY_VIS_STATE = 1;
 
 
 void setup() {
-  size(420, 420);
+  size(900, 600);
   state = LETTER_VIS_STATE;
   initializeLetterVis();
   initializeFreqs();
+  initializeAlicePos();
   initializePalette();
   setupVis();
+  highlightAlice(alicePos);
   findMin(freqs);
   findMax(freqs);
   setupFreqsVis();

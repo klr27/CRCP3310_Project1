@@ -1,11 +1,19 @@
 void initializeLetterVis() {
-  letterVis = new PImage(420, 420, RGB);
+  //letterVis = new PImage(420, 420, RGB);
+  letterVis = new PImage(900, 650, RGB);
   letterVis.loadPixels();
 }
 
 void initializeFreqs() {
   for (int i=0; i < 26; i++) {
     freqs[i] = 0;
+    freqsVis[i] = 0;
+  }
+}
+
+void initializeAlicePos() {
+  for (int i=0; i < 402; i++) {
+    alicePos[i] = 0;
   }
 }
 
