@@ -1,7 +1,8 @@
-# Data: Narrative, Meaning, and Discovery Project 1
+# Data: Narrative, Meaning, and Discovery
+## Project 1: Parsing and Visualizing Unstructured Data
 Create a visualization of Lewis Carroll’s Alice in Wonderland, using Java and the Processing environment.
 
-## Requirements
+### Requirements
 1. Each instance of a particular character should be colored the same. The colors are up to you, and this should not be case sensitive. For example, all A’s and a’s should be chartreuse.
 2. Each occurrence of the word Alice should be highlighted in some fashion.
 3. Spaces and non-alpha characters should all be the same color (eg. black).
